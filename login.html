@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+
+  <!-- Your custom style -->
+  <link href="css/style.css" rel="stylesheet" />
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body style="background-color: #f8f9fa; min-height: 100vh; display: flex; align-items: center;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-3">
+          <div class="card-body p-5">
+            <h3 class="card-title text-center mb-4" style="color: #1e3a8a; font-weight: bold;">Login</h3>
+
+            <!-- Error message -->
+            <div class="alert alert-danger" style="display: none">Error message goes here...</div>
+
+            <!-- Success message -->
+            <div class="alert alert-success" style="display: none">Success message goes here...</div>
+
+            <!-- Login form -->
+            <form method="POST" class="auth-form">
+              <div class="mb-3">
+                <label class="form-label fw-bold">Username</label>
+                <input type="text" name="username" class="form-control form-control-lg rounded-pill" required />
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold">Password</label>
+                <input type="password" name="password" class="form-control form-control-lg rounded-pill" required />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold">Login</button>
+            </form>
+
+            <div class="text-center mt-4">
+              <a href="forgot-password.html" class="text-decoration-none d-block mb-2" style="color: #6c757d;">Forgot
+                Password?</a>
+              <a href="signup.html" class="text-decoration-none" style="color: #1e3a8a;">Don't have an account? Register
+                now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelector('.auth-form').addEventListener('submit', function (e) {
+      const username = document.querySelector('input[name="username"]').value.trim();
+      const password = document.querySelector('input[name="password"]').value;
+
+      if (!username || !password) {
+        e.preventDefault();
+        alert('Please enter username and password.');
+      } else {
+        // For demo - redirect to dashboard
+        e.preventDefault();
+        window.location.href = 'dashboard.html';
+      }
+    });
+  </script>
+</body>
+
+</html>
